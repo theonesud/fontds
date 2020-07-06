@@ -1,0 +1,7 @@
+.vscode
+.DS_Store
+fontfiles/*
+imgs/*
+!.gitkeep
+__pycache__
+done/
