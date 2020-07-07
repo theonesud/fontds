@@ -1,6 +1,6 @@
 # Font image dataset
 
-![img](preview.jpg)
+![img](opensans.jpg)
 
 Contains scripts to scrape (non-offsite) free fonts from [fontsquirrel.com](https://www.fontsquirrel.com/) and create a dataset of 1024x1024px images showcasing the font
 
@@ -43,6 +43,9 @@ Creates images (.jpg) for all fonts (or a single font) and saves it in the `imgs
 
 ## Requirements
 `pip install requests beautifulsoup4 pillow tqdm`
+
+## Why did I choose the word Hamburgefonstiv?
+Because [wikipedia.org/Hamburgevons](https://en.wikipedia.org/wiki/Hamburgevons)
 
 ## Font Licenses
 Refer [fontsquirrel.com/faq](https://www.fontsquirrel.com/faq)
