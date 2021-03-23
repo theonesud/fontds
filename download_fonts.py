@@ -18,8 +18,7 @@ def simple_get(url, resp_type):
         with closing(get(url, stream=True)) as resp:
             if is_good_response(resp, resp_type):
                 return resp.content
-            else:
-                return None
+            return None
     except RequestException as e:
         print('Error during get request to {0} : {1}'.format(url, str(e)))
         return None
