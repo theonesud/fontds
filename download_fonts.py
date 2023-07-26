@@ -16,18 +16,14 @@ def simple_get(url, resp_type):
 
     try:
         with closing(get(url, stream=True)) as resp:
-            if is_good_response(resp, resp_type):
-                return resp.content
-            else:
-                return None
+            return resp.content if is_good_response(resp, resp_type) else None
     except RequestException as e:
         print('Error during get request to {0} : {1}'.format(url, str(e)))
         return None
 
 
 def get_font_download_links(html_url):
-    html = simple_get(html_url, 'html')
-    if html:
+    if html := simple_get(html_url, 'html'):
         soup = BeautifulSoup(html, 'html.parser')
         anchors = soup.select("a[href*='/fonts/download']")
         anchors = [a for a in anchors if 'offsite' not in a.text]
@@ -56,7 +52,7 @@ def get_fonts(base_url, first_page_no, last_page_no):
         for link in tqdm(links):
             font_name = link['href'].split('/')[-1]
             file_stream = simple_get('https://www.fontsquirrel.com'+link['href'], 'application')
-            with open('fontfiles/' + font_name + '.zip', 'wb') as f:
+            with open(f'fontfiles/{font_name}.zip', 'wb') as f:
                 f.write(file_stream)
 
 
